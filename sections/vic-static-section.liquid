@@ -1,0 +1,34 @@
+
+<div id = "textsection">
+  <div clss = "simpletext">
+    <h1>{{ section.settings.text-box-title }}</h1>
+    <h3>{{ section.settings.text-box-content }}</h3>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "vicmod text box",
+    "settings": [
+	{	
+      "id":"text-box-title",
+      "type":"text",
+      "label":"Heading",
+      "default":"Title"
+	},
+	{
+	  "id":"text-box-content",
+	  "type":"richtext",
+	  "label":"Add custom text below",
+	  "default":"<p>add your text here</p>"
+	}
+
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

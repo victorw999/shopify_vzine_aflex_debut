@@ -1,0 +1,67 @@
+<div id="section-cta">
+  <div class="section-header text-center">
+    <h3> {{ section.settings.text-box }} </h3>
+  </div>
+  {% for block in section.blocks %}
+    <div class="btn btn--cta">
+      <a  href="{{ block.settings.link }}" 
+          class="btn btn--cta">
+          {{ block.settings.linktext }}
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name":"CTA Blocks",
+    "max_blocks":3,
+    "settings":[
+      {
+        "id":"text-box",
+        "type":"text",
+        "label":"heading",
+        "default":"title"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"select",
+        "name":"select",
+        "settings":[
+          {
+            "id":"link",
+            "type":"url",
+            "label":"button link"
+          },
+          {
+            "id":"linktext",
+            "type":"text",
+            "label":"buttton text",
+            "default":"click here"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name":"vic call to action blocks",
+        "category":"vicmod",
+        "blocks":[
+          {
+            "type":"select"
+          },
+          {
+            "type":"select"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

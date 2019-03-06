@@ -1,0 +1,72 @@
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="rte">
+        {{ page.content }}
+      </div>
+      
+      
+      {% comment %}
+      180917 vicmod: 
+      Contact form starts here
+      {% endcomment %}
+      
+      <div class="contact-form form-vertical" id="ambassador_form">
+      {% form 'contact' %}
+
+        {% if form.posted_successfully? %}
+          <p class="note form-success">
+            {{ 'contact.form.post_success' | t }}
+          </p>
+        {% endif %}
+
+        {{ form.errors | default_errors }}
+
+        <div class="grid grid--half-gutters">
+        
+          <div class="grid__item medium-up--one-half">
+            <label for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+            <input required type="text" id="ContactFormName" name="contact[Ambassador Applicant]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+          </div>
+          
+          <div class="grid__item medium-up--one-half">
+            <label for="ContactFormEmail" class="{% if form.errors contains 'email' %}label--error{% endif %}">{{ 'contact.form.email' | t }}</label>
+            <input required type="email" id="ContactFormEmail" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+          </div>
+          
+          <div class="grid__item medium-up--one-half">
+            <label for="ContactFormSocialPlatform">Your social platform of choice</label>
+            <input required type="text" id="ContactFormSocialPlatform" name="contact[social platform of choice]" value="">
+          </div>
+          
+          <div class="grid__item medium-up--one-half">
+            <label for="ContactFormFollowers">Number of followers on that platform?</label>
+            <input required type="text" id="ContactFormFollowers" name="contact[number of followers]" autocorrect="off" autocapitalize="off" 
+            value="" class="">
+          </div>
+          
+        </div>
+
+        <label for="ContactFormLinkToAcct">Please give us the link to your account:</label>
+        <input required type="text" id="ContactFormLinkToAcct" name="contact[Link to your account]"  value="">
+
+        <label for="ContactFormYourself">Can you tell us a little about yourself? Why do you have an interest in activewear?</label>
+        <textarea required rows="10" id="ContactFormYourself" name="contact[Tell us a little about yourself]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+        <label for="ContactFormWhyAflex">Why do you want to join the Aflex Ambassador Program?</label>
+        <textarea  required rows="10" id="ContactFormWhyAflex" name="contact[Reason_joining_Ambassador]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        
+        <input type="submit" class="btn" value="Submit Application">
+
+      {% endform %}
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</div>
