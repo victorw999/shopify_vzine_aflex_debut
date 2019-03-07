@@ -1,1 +1,33 @@
-@import "modules/test";   
+
+
+// Core Partials;
+@import "modules/variables";
+@import "modules/vic-base";
+@import "modules/mixin";
+
+@import "modules/linda-lookbook";
+@import "modules/vic-banner";
+@import "modules/single-btn-section";
+@import "modules/video-section";
+
+@import "modules/vic-gallery";
+@import "modules/vic-gallery-1"; // two jackets
+@import "modules/vic-gallery-2"; // blue purple hover sections - top
+@import "modules/vic-gallery-3"; // blue purple hover sections - bottom
+@import "modules/vic-img-txt-overlay-2"; // flatlay
+@import "modules/vic-img-txt-overlay-4"; // hands holding flower
+
+@import "modules/story-editorial-gallery2";
+@import "modules/lulu-gallery";
+
+@import "modules/slideshow-override";
+@import "modules/subscribe-override";
+@import "modules/collection-description";
+@import "modules/size-chart";
+@import "modules/featured-tops";
+//@import "modules/disable-cart";////
+
+
+// new
+// @import "modules/home_single_btn";   /* Image W/ Text Overlay*/
+// @import "modules/home_slide";

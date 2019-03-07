@@ -1,0 +1,32 @@
+.custom-css-vic-gallery-1{
+  margin-top: -55px;// fix padding caused by sections
+  padding-top:100px;
+  // use SASS function to lighter background
+  //background: linear-gradient(to left bottom, rgba($my_pink, 0.5) 50%, rgba($my_blue,0.5) 50%);
+ // @include gradient-animation(rgba($my_pink, 0.5), rgba($my_blue,0.5), 2s);
+  //@include gradient-animation(lighten($my_pink, 15%), lighten($my_blue,15%), 2s);
+  // @include gradient-animation-smooth(#F7F7F7, lighten($my_pink, 15%), 1s);
+
+  //-webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  //clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  //@include angle(both);
+
+  //background:white;
+  -webkit-transition: background 1s ease-in-out;
+  -moz-transition: background 1s ease-in-out;
+  -ms-transition: background 1s ease-in-out;
+  -o-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
+
+  position:relative; // if don't specify position, the above gradient mixin will turn div into absolute
+  @media screen and (max-width: 750px) {  max-width:none; }
+
+  // re-position .img_left
+  .img_left{
+  	//margin-top:10%;
+    @media screen and (max-width: 750px) {
+      margin-top:0;  margin-bottom:300px; // leave space for content box
+    } //@media
+    @media only screen and (max-width: 415px) { margin-bottom:0px; }
+  }// img_left
+}// div.vicmod-gallery.custom-css-vic-gallery-1

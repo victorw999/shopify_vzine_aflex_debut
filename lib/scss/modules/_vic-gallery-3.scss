@@ -1,0 +1,23 @@
+    .custom-css-vic-gallery-3{
+      // set pre-hover overlay colors
+      .img_left .image-bar__overlay::before{
+        background-color: $my_blue; opacity: 1;
+      }
+      .img_right .image-bar__overlay::before{
+        //background-color: #F7F7F7; opacity: 0.96;
+        background-color: $my_pink; opacity: 0.95;
+      }
+
+      // readjust text position
+      .img_right .image-bar__text{
+        h3{
+          padding-bottom: 25px !important;
+        }
+      }// .image-bar__text
+
+      @media screen and (max-width: 750px){
+        .vicmod-gallery-content-box {
+          background: transparent;
+        }
+      }
+    }

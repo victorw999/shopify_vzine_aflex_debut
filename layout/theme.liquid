@@ -36,7 +36,7 @@
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
   <!-- theme_vicmod_old.css is frm previous dev_env on lindaWin7_2015 -->
-  {{ 'theme_vicmod_old.css' | asset_url | stylesheet_tag }}
+  <!-- {{ 'theme_vicmod_old.css' | asset_url | stylesheet_tag }} -->
 
   <!-- theme_vicmod.css is built after migration to vzine on 190302 -->
   {{ 'theme_vicmod.css' | asset_url | stylesheet_tag }}
@@ -102,7 +102,7 @@
   <!-- VICMOD ScrollMagic END -->
 
   <!-- VICMOD link browserify's bundle.js -->
-    {{ 'bundle.js' | asset_url | script_tag }} 
+    {{ 'bundle.js' | asset_url | script_tag }}
 
 </head>
 

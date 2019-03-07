@@ -1,0 +1,28 @@
+table.vic-size-chart{
+  tr td{
+    text-align: center;
+    @media only screen and (max-width: 415px){
+      font-size: 0.9em;
+      padding: 0;
+      color: black;
+    }
+  }
+  tr.table_header{
+    color:black;
+    font-weight:800;
+    @media only screen and (max-width: 415px){
+      font-size: 0.7em;
+    }
+  }
+}// table.vic-size-chart
+
+// buttons
+#vic-btn-sizechart{
+  //display: inline-block;
+  //border: 2px solid darkgrey;
+  background: darkgrey;
+  margin-bottom: 5px;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+}//#vic-btn-sizechart
