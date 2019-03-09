@@ -1,0 +1,145 @@
+
+/* vicmod mixin END ****************************************************************/
+/*vicmod mixin
+ref: https://codepen.io/anon/pen/WJLXNy?editors=1100
+*/
+@mixin gradient-animation( $start, $end, $transTime ){
+  background-size: 100%;
+  background-image: -webkit-linear-gradient(to bottom left, $start 50%, $end 50%);
+  background-image: linear-gradient(to bottom left, $start 50%, $end 50%);
+
+  position: absolute;
+  z-index: 100;
+  &:before {
+    border-radius: inherit;
+    background-image: -webkit-linear-gradient(to bottom left, $end 50%, $start 50%);
+    background-image: linear-gradient(to bottom left, $end 50%, $start 50%);
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    z-index: -100;
+    -moz-transition: opacity $transTime ease-in-out;
+    -webkit-transition: opacity $transTime ease-in-out;
+    transition: opacity $transTime ease-in-out;
+  }
+  &:hover {
+     &:before {
+       opacity: 1;
+     }
+  }
+}
+@mixin gradient-animation-smooth( $start, $end, $transTime ){
+  background-size: 100%;
+  background-image: -webkit-linear-gradient(to bottom left, $start , $end );
+  background-image: linear-gradient(to bottom left, $start, $end );
+
+  position: absolute;
+  z-index: 100;
+  &:before {
+    border-radius: inherit;
+    background-image: -webkit-linear-gradient(to bottom left, $end, $start);
+    background-image: linear-gradient(to bottom left, $end, $start);
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    z-index: -100;
+    -moz-transition: opacity $transTime ease-in-out;
+    -webkit-transition: opacity $transTime ease-in-out;
+    transition: opacity $transTime ease-in-out;
+  }
+  &:hover {
+     &:before {
+       opacity: 1;
+     }
+  }
+}
+
+/* mixin angled background-size
+ref: https://codepen.io/jeremyfrank/pen/avyezR
+https://www.viget.com/articles/angled-edges-with-css-masks-and-transforms/
+*/
+@mixin angle($pseudo, $flip: false, $angle: 1.5deg) {
+  // Possible values for $pseudo are: before, after, both
+  @if $pseudo == 'before' or $pseudo == 'after' or $pseudo == 'both' {
+    position: relative; z-index: 1;
+    $selector: if($pseudo == 'both', '&:before,&:after', '&:#{$pseudo}');
+
+    #{$selector} {
+      background: inherit;
+      content: '';
+      display: block;
+      height: 50%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+      -webkit-backface-visibility: hidden; // for Chrome Windows
+    }
+
+    @if $pseudo == 'before' {
+      #{$selector} {
+        top: 0;
+        @if $flip {
+          transform: skewY($angle * -1);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle);
+          transform-origin: 100% 0;
+        }
+      }
+    }
+
+    @if $pseudo == 'after' {
+      #{$selector} {
+        bottom: 0;
+
+        @if $flip {
+          transform: skewY($angle);
+          transform-origin: 0 100%;
+        } @else {
+          transform: skewY($angle * -1);
+          transform-origin: 100%;
+        }
+      }
+    }
+
+    @if $pseudo == 'both' {
+      &:before {
+        top: 0;
+
+        @if $flip {
+          transform: skewY($angle * -1);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle);
+          transform-origin: 100% 0;
+        }
+      }
+
+      &:after {
+        bottom: 0;
+
+        @if $flip {
+          transform: skewY($angle);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle * -1);
+          transform-origin: 100%;
+        }
+      }
+    }
+  }
+}
+.edge--both {
+  @include angle(both);
+}
+
+/* vicmod mixin END ****************************************************************/

@@ -1,0 +1,13 @@
+
+/* Closeup Hand holds flower */
+.vicmod-img-txt-overlay-4{
+  background-attachment: fixed;
+  -webkit-transform: translate3d(0,0,0);  // fix the "background disappearing issue"
+                                          // https://bit.ly/2yspfpo
+  .vic_content1{
+    border:none;
+    h1,p{
+      color:white;
+    }
+  }// .vic_content1
+}// .vicmod-img-txt-overlay-4

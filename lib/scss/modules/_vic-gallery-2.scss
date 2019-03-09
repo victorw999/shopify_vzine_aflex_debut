@@ -1,0 +1,20 @@
+// custom-css-vic-gallery-2
+.custom-css-vic-gallery-2{
+
+  // set pre-hover overlay colors
+  .img_left .image-bar__overlay::before{
+    background-color: $my_pink;
+    opacity: 0.95;
+  }
+  .img_right .image-bar__overlay::before{
+    background-color: $my_blue; opacity:1;
+  }
+
+  @media screen and (max-width: 750px){
+    .vicmod-gallery-content-box {
+      background: transparent;
+    }
+  }
+
+
+}//div.vicmod-gallery.custom-css-vic-gallery-2
