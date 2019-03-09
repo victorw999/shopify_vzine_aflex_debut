@@ -35,12 +35,15 @@
 
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
-  <!-- theme_vicmod_old.css is frm previous dev_env on lindaWin7_2015 -->
-  <!-- {{ 'theme_vicmod_old.css' | asset_url | stylesheet_tag }} -->
 
-  <!-- theme_vicmod.css is built after migration to vzine on 190302 -->
+  <!--
+  190308 after figured out how to add liquid settings tags into my gulp
+  theme_vicmod.css  is no longer needed
   {{ 'theme_vicmod.css' | asset_url | stylesheet_tag }}
+  -->
 
+  <!-- use shopify server to comiple my "theme_vicmod_liquid.css.liquid" -->
+  {{ 'theme_vicmod_liquid.css' | asset_url | stylesheet_tag }}
 
   {% include 'google-fonts' %}
 

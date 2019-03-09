@@ -15,6 +15,10 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 
+// compile SASS to liquid tags REF: https://bit.ly/2SQJC4s
+var concat = require('gulp-concat');
+var replace = require('gulp-replace');
+
 function handleErrors() {
   var args = Array.prototype.slice.call(arguments);
   notify.onError({ // Send error to notification center with gulp-notify
@@ -29,6 +33,9 @@ gulp.task('sass', function () {
     .pipe(sass({includePaths: neat, outputStyle: 'compressed'}))
     .on('error', handleErrors)
     .pipe(autoprefixer({ browsers: ['last 2 version'] }))
+    .pipe(concat('theme_vicmod_liquid.css.liquid'))  // change the file name to be a liquid file
+    .pipe(replace('"{{', '{{'))        // remove the extra set of quotations used for escaping the liquid string
+    .pipe(replace('}}"', '}}'))
     .pipe(gulp.dest('./assets'));
 });
 
