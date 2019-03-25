@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'vic_verlag';
+  src: url('verlag_book-webfont.woff2') format('woff2'),
+       url('verlag_book-webfont.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'vic_verlag';
+  src: url('verlag_light-webfont.woff2') format('woff2'),
+       url('verlag_light-webfont.woff') format('woff');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'vic_verlag';
+  src: url('verlag_xlight-webfont.woff2') format('woff2'),
+       url('verlag_xlight-webfont.woff') format('woff');
+  font-weight: 100;
+}

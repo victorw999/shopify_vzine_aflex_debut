@@ -364,6 +364,11 @@
             "value": "Google_Vollkorn_700_serif",
             "label": "Vollkorn Bold",
             "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "vic_verlag",
+            "label": "vic_verlag",
+            "group": "Serif | Victor"
           }
         ]
       },
