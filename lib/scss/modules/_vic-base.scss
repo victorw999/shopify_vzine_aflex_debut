@@ -1,23 +1,33 @@
-
 //vicmod remove top margin
-main#MainContent{ padding-top:0px;}
 
-// mod theme color
-#shopify-section-header .announcement-bar{
-  background-color:lighten($my_pink, 15%);
-  //background-color:$my_pink;
+main#MainContent {
+  padding-top: 0;
 }
 
+#shopify-section-header .announcement-bar {
+  background-color: lighten($my_pink, 15%);  
+}
 //vicmod content box format #1
-.vic_content1{
+
+.vic_content1 {
   border: 1px solid #d8d8d8;
-  h1, p{color:black;}
-  h1{	letter-spacing:-3px;font-weight:100;}
-  p, a{
-    font-weight:800;
+
+  h1, p {
+    color: black;
+  }
+
+  h1 {
+    // letter-spacing: -3px;
+    // font-weight: 100;
+  }
+
+  a,
+  p {
+    font-weight: 800;
     letter-spacing: 0.08em;
     font-size: 14px;
-    text-transformation:uppercase;
+    text-transformation: uppercase;
     margin-bottom: 0;
   }
-}// .vic_content1
+}
+// .vic_content1
