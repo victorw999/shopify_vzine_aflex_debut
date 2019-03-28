@@ -1,5 +1,3 @@
-
-/* vicmod mixin END ****************************************************************/
 /*vicmod mixin
 ref: https://codepen.io/anon/pen/WJLXNy?editors=1100
 */
@@ -142,4 +140,43 @@ https://www.viget.com/articles/angled-edges-with-css-masks-and-transforms/
   @include angle(both);
 }
 
-/* vicmod mixin END ****************************************************************/
+
+
+
+
+// ref: https://davidwalsh.name/write-media-queries-sass
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+/* REF: http://stephen.io/mediaqueries/#iPhone
+*/
+@mixin iphone5{
+  @media only screen and (min-width: 320px) and (max-width: 568px) {
+    @content;
+  }
+}
+
+@mixin iphone678_portrait{
+  @media only screen and (min-width: 414px) and (max-width : 736px) and (orientation : portrait) {
+    @content;
+  }
+}

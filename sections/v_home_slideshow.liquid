@@ -1,3 +1,10 @@
+<!--
+  vicmod feature adds:
+  1. slide text position: left, right, middle, top, bottom
+  2. allow adding html in text, removed 'escape'
+  3. add text color option
+-->
+
 <div data-section-id="{{ section.id }}" data-section-type="slideshow-section">
 
   {% if section.blocks.size > 0 %}
@@ -13,7 +20,7 @@
         </span>
       </button>
 
-      <div class="slideshow slideshow--{{ section.settings.slideshow_height }}" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
+      <div class="vicmod-slideshow slideshow slideshow--{{ section.settings.slideshow_height }}" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
         {% for block in section.blocks %}
           {%- assign is_background_video = false -%}
           {% if block.type == 'video' %}
@@ -78,14 +85,21 @@
                     <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}"
                       style="color: {{ block.settings.text_color}};"
                     >
+                      {% comment %}  disable escape to allow user add <br>
                       {{ block.settings.title | escape }}
+                      {% endcomment %}
+                      {{ block.settings.title  }}
+
                     </h2>
                   {% endunless %}
                   {% unless block.settings.subheading == blank %}
                     <span class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}"
                       style="color: {{ block.settings.text_color}};"
                     >
+                      {% comment %}  disable escape to allow user add <br>
                       {{ block.settings.subheading | escape }}
+                      {% endcomment %}
+                      {{ block.settings.subheading }}
                     </span>
                   {% endunless %}
                   {% if block.type == 'video' %}
@@ -120,7 +134,7 @@
 
 {% schema %}
   {
-    "name": "vicmod-Slideshow",
+    "name": "v_home_slideshow",
     "class": "index-section index-section--flush",
     "max_blocks": 4,
     "settings": [
@@ -249,13 +263,13 @@
             "type": "text",
             "id": "title",
             "label": "Heading",
-            "default": "Image slide"
+            "default": "Image slide for Aflex <br> Create a Point of Focus"
           },
           {
             "type": "text",
             "id": "subheading",
             "label": "Subheading",
-            "default": "Tell your brand's story through video and images"
+            "default": "AFLEX ALLCAPS CTA"
           },
           {
             "type": "url",
@@ -316,7 +330,7 @@
       }
     ],
     "presets": [{
-      "name": "vicmod-Slideshow",
+      "name": "v_home_slideshow",
       "category": "vicmod",
       "settings": {
         "autoplay": true,

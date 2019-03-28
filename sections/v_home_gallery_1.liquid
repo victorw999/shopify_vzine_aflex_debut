@@ -1,0 +1,273 @@
+<!--
+  vicmod:
+  template orgined from debut's "image-bar.liquid"
+  preset's name: Gallery
+
+  added features:
+  1. text will be positioned in the middle,
+  2. only allow 2 images
+  3. maybe allow uneven aligment (e.g. one higher, one lower)
+  4. add color options: section's title, subtitle, btn_bg_color
+
+
+
+-->
+
+<div class="v_gallery_1 vicmod-gallery grid grid--no-gutters image-bar image-bar--{{ section.settings.section_height }} {{ section.settings.custom-css-class }} {% if section.settings.image_layout == 'left_up'%} left_up{%endif%}{% if section.settings.image_layout == 'right_up'%} right_up{%endif%}
+">
+  {% case section.blocks.size %}
+    {% when 1 %}
+      {%- assign column_size = '' -%}
+    {% when 2 %}
+      {%- assign column_size = 'medium-up--one-half' -%}
+  {% endcase %}
+
+  <!-- middle text content -->
+  <div class="content_wrapper
+  {% if section.settings.overlay_setting == true %} {% if  section.settings.box-heading != blank or section.settings.box-content != blank %} image-bar__overlay {% endif %}{% endif %} ">
+    <article class="text_content">
+      <h1 class="title" style="color:{{ section.settings.box_heading_color}}"> {{ section.settings.box-heading }} </h1>
+      <p class="subtitle" style="color:{{ section.settings.box_content_color}}"> {{ section.settings.box-content }} </p>
+      <a href =" {{ section.settings.link }} " class="btn hero__btn" style="background-color:{{section.settings.btn_bg_color}}">
+        {{ section.settings.linktext }}
+      </a>
+    </article><!-- text_content -->
+  </div> <!--  content_wrapper  -->
+
+  {% for block in section.blocks %}
+    <div class="grid__item {{ column_size }} js {% if forloop.index == 1 %} img_left {% else %} img_right {% endif %} border-{{section.settings.border_size}}" {{ block.shopify_attributes }}
+      style="border-color:{{section.settings.border_color}};"
+    >
+      {% if block.settings.link != blank %}
+        <a class="image-bar__link" href="{{ block.settings.link }}">
+          <div class="image-bar__item box ratio-container lazyload {{ block.settings.custom-img-css-class }}"
+               data-bgset="{% include 'bgset', image: block.settings.image %}"
+               data-sizes="auto"
+               data-parent-fit="cover"
+               style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+      {% elsif block.settings.image != blank %}
+        <div class="image-bar__item image-bar__item--{{ block.id }} box ratio-container lazyload {{ block.settings.custom-img-css-class }}"
+             data-bgset="{% include 'bgset', image: block.settings.image %}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+      {% else %}
+        <div class="image-bar__item">
+      {% endif %}
+      <div class="image-bar__content{% if block.settings.cta_label != blank %} image-bar__overlay{% endif %}">
+        {% if block.settings.image == blank %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+
+        {% if block.settings.cta_label != blank %}
+          <div class="image-bar__text">
+            <h3 class="image-bar__caption">{{ block.settings.cta_label   }}</h3>
+            <p class="image-bar__caption2">{{ block.settings.cta_label2 }}</p>
+          </div>
+        {% endif %}
+      </div>
+      {% if block.settings.link != blank %}
+        </div></a>
+      {% else %}
+        </div>
+      {% endif %}
+    </div>
+    <noscript>
+      <div class="grid__item {{ column_size }}" {{ block.shopify_attributes }}>
+        <div class="image-bar__item image-bar__item--{{ block.id }}" style="background-image: url({{ block.settings.image | img_url: '2048x' }});"></div>
+      </div>
+    </noscript>
+  {% endfor %}
+</div>
+
+{% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "v_home_gallery_1",
+    "class": "index-section index-section--flush",
+    "max_blocks": 2,
+    "settings": [
+      {
+        "type": "select",
+        "id": "section_height",
+        "label": "Section height",
+        "default": "medium",
+        "options": [
+          {
+            "label": "Extra Small",
+            "value": "x-small"
+          },
+          {
+            "label": "Small",
+            "value": "small"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "Large",
+            "value": "large"
+          },
+          {
+            "label": "Extra Large",
+            "value": "x-large"
+          }
+        ]
+      },
+      {
+        "id":"box-heading",
+        "type":"text",
+        "label":"heading",
+        "default":"Feature Heading"
+      },
+      {
+        "id": "box_heading_color",
+        "type": "color",
+        "label": "Heading Color"
+      },
+      {
+        "id":"box-content",
+        "type":"text",
+        "label":"content",
+        "default":"aflex Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio."
+      },
+      {
+        "type": "color",
+        "id": "box_content_color",
+        "label": "Content Color"
+      },
+      {
+        "id":"link",
+        "type":"url",
+        "label":"button link"
+      },
+      {
+        "id":"linktext",
+        "type":"text",
+        "label":"button text",
+        "default":"click here"
+      },
+      {
+        "id":"btn_bg_color",
+        "type":"color",
+        "label":"button background color"
+      },
+      {
+  		"id":"custom-css-class",
+  		"type":"text",
+  		"label":"custom-css-class",
+  		"default":"css-class"
+      },
+      {
+        "type":"radio",
+        "id":"image_layout",
+        "label": "Uneven Layouts",
+        "options":[
+          {"value":"normal", "label": "Normal"},
+          {"value":"left_up", "label": "Left Up"},
+          {"value":"right_up", "label": "Right Up"}
+        ],
+        "default": "normal"
+      },
+      {
+        "type":      "checkbox",
+        "id":        "overlay_setting",
+        "label":     "Turn on overlay for text",
+        "default":   true,
+        "info":      "overlay color config: Theme Settings > Colors"
+      },
+      {
+         "type": "select",
+         "id": "border_size",
+         "options": [
+            { "value": "0", "label": "0"},
+            { "value": "1", "label": "1"},
+            { "value": "2", "label": "2"},
+            { "value": "3", "label": "3"},
+            { "value": "4", "label": "4"},
+            { "value": "5", "label": "5"}
+         ],
+         "label": "Border Size",
+         "default":"0"
+      },
+      {
+        "id":"border_color",
+        "type":"color",
+        "label":"Border Color",
+        "default":"#FFFFFF"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Image alignment",
+            "default": "center",
+            "options": [
+              {
+                "value": "top",
+                "label": "Top"
+              },
+              {
+                "value": "center",
+                "label": "Middle"
+              },
+              {
+                "value": "bottom",
+                "label": "Bottom"
+              }
+            ]
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link",
+            "info": "Optional"
+          },
+          {
+            "type": "text",
+            "id": "cta_label",
+            "label": "Caption"
+          },
+          {
+            "type": "text",
+            "id": "cta_label2",
+            "label": "Caption2"
+          },
+    		  {
+      			"type":"text",
+      			"id":"custom-img-css-class",
+      			"label":"css class"
+    		  }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "v_home_gallery_1",
+        "category": "vicmod",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
