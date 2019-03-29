@@ -25,7 +25,7 @@
   <!-- middle text content -->
   <div class="content_wrapper
   {% if section.settings.overlay_setting == true %} {% if  section.settings.box-heading != blank or section.settings.box-content != blank %} image-bar__overlay {% endif %}{% endif %} ">
-    <article class="text_content">
+    <article class="text_content" style=" background-color:{{ section.settings.text_content_bg }} ">
       <h1 class="title" style="color:{{ section.settings.box_heading_color}}"> {{ section.settings.box-heading }} </h1>
       <p class="subtitle" style="color:{{ section.settings.box_content_color}}"> {{ section.settings.box-content }} </p>
       <a href =" {{ section.settings.link }} " class="btn hero__btn" style="background-color:{{section.settings.btn_bg_color}}">
@@ -61,7 +61,7 @@
 
         {% if block.settings.cta_label != blank %}
           <div class="image-bar__text">
-            <h3 class="image-bar__caption">{{ block.settings.cta_label   }}</h3>
+            <h3 class="image-bar__caption">{{ block.settings.cta_label }}</h3>
             <p class="image-bar__caption2">{{ block.settings.cta_label2 }}</p>
           </div>
         {% endif %}
@@ -119,9 +119,15 @@
         ]
       },
       {
+        "id":"text_content_bg",
+        "type":"color",
+        "label":"Content background color",
+        "default":"transparent"
+      },
+      {
         "id":"box-heading",
         "type":"text",
-        "label":"heading",
+        "label":"Heading",
         "default":"Feature Heading"
       },
       {
@@ -132,8 +138,8 @@
       {
         "id":"box-content",
         "type":"text",
-        "label":"content",
-        "default":"aflex Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio."
+        "label":"Subheading",
+        "default":"AFLEXUSA MADE IN USA FASHION BRAND"
       },
       {
         "type": "color",
@@ -143,18 +149,18 @@
       {
         "id":"link",
         "type":"url",
-        "label":"button link"
+        "label":"Button link"
       },
       {
         "id":"linktext",
         "type":"text",
-        "label":"button text",
+        "label":"Button text",
         "default":"click here"
       },
       {
         "id":"btn_bg_color",
         "type":"color",
-        "label":"button background color"
+        "label":"Button background color"
       },
       {
   		"id":"custom-css-class",
