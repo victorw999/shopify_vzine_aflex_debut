@@ -1,14 +1,18 @@
 .v_gallery_1 {
   position: relative;
-  @include phone { max-width: 100%; }
+  @include phone {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
   .content_wrapper{
     @include phone{
-      width:100%;
+      width:100%; height: auto;
       background-color: transparent;
-    }
-    @media only screen and (max-width: 415px) {
-      height: 250px;
+      position:relative;
     }
 
     position: absolute; left: 0; right: 0; top: 0;  bottom: 0; margin: auto;
@@ -20,6 +24,10 @@
     padding: 0;
 
     .text_content {
+      @include phone{
+        width:100%; height: auto;
+        position:relative;
+      }
       position: absolute; left: 0; right: 0; top: 0;  bottom: 0; margin: auto;
       border: none;
       width: 20rem;
@@ -43,11 +51,13 @@
     padding:4rem 0;
     .img_left{ margin-top:-2rem; }
     .img_right{ margin-top: 2rem; }
+    @include phone{ .img_left, .img_right {margin-top: auto;} }
   } //left_up
   &.right_up{
     padding:4rem 0;
     .img_left{ margin-top: 2rem; }
     .img_right{ margin-top: -2rem; }
+    @include phone{ .img_left, .img_right {margin-top: auto;} }
   }//right_up
   /* END: uneven layouts */
 
@@ -60,9 +70,33 @@
     &.border-4 {border: 4rem solid;}
     &.border-5 {border: 5rem solid;}
 
-    @include phone { border:none !important; }
-  }//.img_left, .img_right
+    @include phone {
+      border:1rem solid red !important;
+    }
 
+    /* each image's own text captions */
+    .image-bar__text{
+      position:relative;
+      height:100%;
+
+      .image-bar__caption2{
+        @include phone{ /* only display when it's mobile */
+          display:block;
+          position: absolute;
+          left: 50%; bottom: 1%;
+          transform: translateX(-50%);
+          text-align: center;
+          top: auto; margin: auto;
+          background: white; border:1px solid black;  color: black;
+          color: lighten(black, 20%);
+          width: auto;
+          padding: 0.2rem 1rem;
+        }
+        display:none;
+      }//image-bar__caption2
+
+    }//.image-bar__text
+  }//.img_left, .img_right
 } // v_gallery_1
 
 // hover effects

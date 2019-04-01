@@ -59,7 +59,7 @@
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
 
-        {% if block.settings.cta_label != blank %}
+        {% if block.settings.cta_label != blank or block.settings.cta_label2 != blank %}
           <div class="image-bar__text">
             <h3 class="image-bar__caption">{{ block.settings.cta_label }}</h3>
             <p class="image-bar__caption2">{{ block.settings.cta_label2 }}</p>
@@ -251,7 +251,7 @@
           {
             "type": "text",
             "id": "cta_label2",
-            "label": "Caption2"
+            "label": "Caption2 (mobile caption)"
           },
     		  {
       			"type":"text",
