@@ -8,12 +8,9 @@
   2. only allow 2 images
   3. maybe allow uneven aligment (e.g. one higher, one lower)
   4. add color options: section's title, subtitle, btn_bg_color
-
-
-
 -->
 
-<div class="v_gallery_1 vicmod-gallery grid grid--no-gutters image-bar image-bar--{{ section.settings.section_height }} {{ section.settings.custom-css-class }} {% if section.settings.image_layout == 'left_up'%} left_up{%endif%}{% if section.settings.image_layout == 'right_up'%} right_up{%endif%}
+<div class="v_gallery_1 grid grid--no-gutters image-bar image-bar--{{ section.settings.section_height }} {{ section.settings.custom-css-class }} {% if section.settings.image_layout == 'left_up'%} left_up{%endif%}{% if section.settings.image_layout == 'right_up'%} right_up{%endif%}
 ">
   {% case section.blocks.size %}
     {% when 1 %}

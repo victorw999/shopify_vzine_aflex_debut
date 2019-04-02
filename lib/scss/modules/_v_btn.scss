@@ -1,0 +1,10 @@
+/*================ v_btn ================*/
+$v_color_btn:         #{' "{{settings.v_color_btn}}" '};
+$v_color_btn_txt:     #{' "{{settings.v_color_btn_txt}}" '};
+$v_color_btn_border:  #{' "{{settings.v_color_btn_border}}" '};
+
+.v_btn{
+  border: 1px solid $v_color_btn_border;
+  background-color: $v_color_btn;
+  color: $v_color_btn_txt;
+}//v_btn

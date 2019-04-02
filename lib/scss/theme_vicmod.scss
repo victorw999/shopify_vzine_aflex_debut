@@ -5,7 +5,6 @@
 
 @import "modules/linda-lookbook";
 @import "modules/vic-banner";
-@import "modules/single-btn-section";
 @import "modules/video-section";
 
 @import "modules/vic-gallery";
@@ -17,7 +16,7 @@
 
 @import "modules/story-editorial-gallery2";
 @import "modules/lulu-gallery";
-
+ 
 @import "modules/subscribe-override";
 @import "modules/collection-description";
 @import "modules/size-chart";
@@ -25,9 +24,8 @@
 //@import "modules/disable-cart";
 
 // below are new 190307
-@import "modules/home_single_btn";   /* Image W/ Text Overlay*/
-@import "modules/test";
 
 @import "modules/v_home_slideshow"; /* for dynamic section */
 @import "modules/v_home_gallery_1";
 @import "modules/lulu_btn";
+@import "modules/v_btn";
