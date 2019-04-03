@@ -16,7 +16,7 @@
   {% endcomment %}
   {% endif %}
   <div class="hero__inner">
-    <div class="page-width text-center medium-up--{{section.settings.content_width}} one-whole">
+    <div class="page-width text-center {{section.settings.content_width}} one-whole">
       {% if section.settings.title != blank %}
         <h1 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}" style="color:{{section.settings.text_color}}">
           {{ section.settings.title }}
@@ -56,19 +56,19 @@
         "type":"select",
         "id":"content_width",
         "label":"Content Width",
-        "default":"eight-twelfths",
+        "default":"medium-up--nine-twelfths large-up--eight-twelfths",
         "options": [
           {
-            "value": "ten-twelfths", "label": "Super Wide"
+            "value": "medium-up--ten-twelfths large-up--nine-twelfths", "label": "Super Wide"
           },
           {
-            "value": "eight-twelfths", "label": "Wide"
+            "value": "medium-up--nine-twelfths large-up--eight-twelfths", "label": "Wide"
           },
           {
-            "value": "six-twelfths", "label": "Middle"
+            "value": "medium-up--seven-twelfths large-up--six-twelfths", "label": "Middle"
           },
           {
-            "value": "four-twelfths", "label": "Small"
+            "value": "medium-up--five-twelfths large-up--four-twelfths", "label": "Small"
           }
         ]
       },

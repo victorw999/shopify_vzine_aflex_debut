@@ -5,7 +5,6 @@
 
 @import "modules/linda-lookbook";
 @import "modules/vic-banner";
-@import "modules/video-section";
 
 @import "modules/vic-gallery";
 @import "modules/vic-gallery-1"; // two jackets
@@ -23,10 +22,13 @@
 @import "modules/featured-tops";
 //@import "modules/disable-cart";
 
-// below are new 190307    
+// below are new 190307
 
 @import "modules/v_slideshow"; /* for dynamic section */
 @import "modules/v_gallery_1";
 @import "modules/lulu_btn";
 @import "modules/v_btn";
 @import "modules/v_video";
+
+
+@import "modules/overrides";     /* override debut's default behaviors:  theme.scss.liquid */
