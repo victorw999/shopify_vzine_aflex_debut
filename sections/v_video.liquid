@@ -2,9 +2,8 @@
   {% if section.settings.asset_video  == true  %}
     <div class="asset_video">
       <video autoplay="" muted="" loop="" playsinline=""
-        poster="https://cdn.shopify.com/s/files/1/2313/1393/files/vid_thumb_f517d668-70ae-4a2d-8d6c-d0354a152f13.jpg">
-        <source src="https://cdn.shopify.com/s/files/1/2313/1393/files/aflex_vidloop_180503.mp4" type="video/mp4">
-        </source>
+        poster="{{section.settings.thumb_src}}">
+        <source src="{{section.settings.mp4_src}}" type="video/mp4"></source>
       </video>
       <div class="vic_centering_wrapper">
         <img id="video-logo-1"
@@ -45,6 +44,18 @@
         "default":   true,
         "id":        "asset_video",
         "label":     "using video uploaded to asset folder"
+      },
+      {
+        "type":      "text",
+        "default":   "https://cdn.shopify.com/s/files/1/2313/1393/files/aflex_vidloop_180503.mp4",
+        "id":        "mp4_src",
+        "label":     "mp4 Video Source"
+      },
+      {
+        "type":      "text",
+        "default":   "https://cdn.shopify.com/s/files/1/2313/1393/files/vid_thumb_f517d668-70ae-4a2d-8d6c-d0354a152f13.jpg",
+        "id":        "thumb_src",
+        "label":     "Video Thumbnail Source"
       },
       {
         "type":      "text",
