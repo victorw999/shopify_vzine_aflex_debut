@@ -3,8 +3,20 @@ $v_color_btn:         #{' "{{settings.v_color_btn}}" '};
 $v_color_btn_txt:     #{' "{{settings.v_color_btn_txt}}" '};
 $v_color_btn_border:  #{' "{{settings.v_color_btn_border}}" '};
 
+$v_color_btn_hover:      #{' "{{settings.v_color_btn_hover}}" '};
+$v_color_btn_txt_hover:  #{' "{{settings.v_color_btn_txt_hover}}" '};
+
 .v_btn{
   border: 1px solid $v_color_btn_border;
   background-color: $v_color_btn;
   color: $v_color_btn_txt;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  &:hover{
+    background: $v_color_btn_hover;
+    color: $v_color_btn_txt_hover;
+    border-color: $v_color_btn_hover;
+    opacity: initial;
+  }
 }//v_btn

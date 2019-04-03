@@ -16,20 +16,6 @@
         max-width:70%; margin-bottom: 2rem;
         @include phone { display:none;}
       }
-      .vic_btn{
-        background: #ffffffbd;
-        color: black;
-        position:absolute;
-        left:0;right:0;top:0;
-        bottom:-100px;
-        margin:auto;
-        width: 60%;
-        height: 40px;
-        @media screen and (max-width: 768px) {bottom:0; }
-      }// video button vic_btn
-      .vic_btn:hover{ background:black; color:white; opacity:1; }
     } // vic_centering_wrapper
   } //asset_video
-
-
 }//v_video_wrapper

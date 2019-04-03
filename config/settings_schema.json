@@ -23,20 +23,32 @@
       {
         "type": "color",
         "id": "v_color_btn",
-        "label": "v_color_btn",
+        "label": "v_btn color",
         "default": "transparent"
       },
       {
         "type": "color",
         "id": "v_color_btn_txt",
-        "label": "v_color_btn_txt",
+        "label": "v_btn text color",
         "default": "#000000"
       },
       {
         "type": "color",
         "id": "v_color_btn_border",
-        "label": "v_color_btn_border",
+        "label": "v_btn border color",
         "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "v_color_btn_hover",
+        "label": "v_btn color when hover",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "v_color_btn_txt_hover",
+        "label": "v_btn text color when hover",
+        "default": "#fff"
       }
     ]
   },
