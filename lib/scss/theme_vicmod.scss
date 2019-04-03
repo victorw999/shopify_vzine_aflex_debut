@@ -16,16 +16,17 @@
 
 @import "modules/story-editorial-gallery2";
 @import "modules/lulu-gallery";
- 
+
 @import "modules/subscribe-override";
 @import "modules/collection-description";
 @import "modules/size-chart";
 @import "modules/featured-tops";
 //@import "modules/disable-cart";
 
-// below are new 190307
+// below are new 190307    
 
-@import "modules/v_home_slideshow"; /* for dynamic section */
-@import "modules/v_home_gallery_1";
+@import "modules/v_slideshow"; /* for dynamic section */
+@import "modules/v_gallery_1";
 @import "modules/lulu_btn";
 @import "modules/v_btn";
+@import "modules/v_video";

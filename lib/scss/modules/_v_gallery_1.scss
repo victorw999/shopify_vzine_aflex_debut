@@ -71,7 +71,7 @@
     &.border-5 {border: 5rem solid;}
 
     @include phone {
-      border:1rem solid red !important;
+      border:1.5rem solid white !important; // create a border of margin during mobile view
     }
 
     /* each image's own text captions */

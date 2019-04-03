@@ -18,20 +18,20 @@
   <div class="hero__inner">
     <div class="page-width text-center medium-up--{{section.settings.content_width}} one-whole">
       {% if section.settings.title != blank %}
-        <h1 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
+        <h1 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}" style="color:{{section.settings.text_color}}">
           {{ section.settings.title }}
         </h1>
       {% endif %}
 
       {% if section.settings.text != blank %}
-        <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+        <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}" style="color:{{section.settings.text_color}}">
           {{ section.settings.text }}
         </div>
       {% endif %}
 
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="btn  {{ section.settings.button_format}}"
-          style=" {% if section.settings.remove_btn_margin_top == true %} margin-top:0px;{% endif %} ">
+        <a href="{{ section.settings.button_link }}" class="{{ section.settings.button_format}}"
+          style="margin-top:{{section.settings.margin_top}}">
           {{ section.settings.button_label }}
         </a>
       {% endif %}
@@ -116,6 +116,11 @@
         "default": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>"
       },
       {
+        "type":"color",
+        "id":"text_color",
+        "label":"Text Color"
+      },
+      {
         "type": "select",
         "id": "hero_size",
         "label": "Section height",
@@ -173,18 +178,18 @@
         "type":"select",
         "id":"button_format",
         "label":"Button Format",
-        "default":"hero__btn",
+        "default":"btn hero__btn",
         "options":[
-          {"label":"hero__btn", "value":"hero__btn"},
-          {"label":"v_btn", "value":"v_btn"},
+          {"label":"hero__btn", "value":"btn hero__btn"},
+          {"label":"v_btn", "value":"btn v_btn"},
           {"label":"lulu_button", "value":"lulu_button"}
         ]
       },
       {
-        "type": "checkbox",
-        "id": "remove_btn_margin_top",
-        "default": false,
-        "label": "remove hero button's top margin"
+        "type": "text",
+        "id": "margin_top",
+        "default": "27px",
+        "label": "margin-top:"
       },
 	    {
     		"id":"custom-css-class",

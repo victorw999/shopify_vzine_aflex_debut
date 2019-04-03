@@ -1,0 +1,71 @@
+<div class="v_video_wrapper">
+  {% if section.settings.asset_video  == true  %}
+    <div class="asset_video">
+      <video autoplay="" muted="" loop="" playsinline=""
+        poster="https://cdn.shopify.com/s/files/1/2313/1393/files/vid_thumb_f517d668-70ae-4a2d-8d6c-d0354a152f13.jpg">
+        <source src="https://cdn.shopify.com/s/files/1/2313/1393/files/aflex_vidloop_180503.mp4" type="video/mp4">
+        </source>
+      </video>
+      <div class="vic_centering_wrapper">
+        <img id="video-logo-1"
+          src="https://cdn.shopify.com/s/files/1/2313/1393/files/aflex-logo-opac-half.png">
+        <a id="video-btn-1" target="_blank" class="lulu_button" href="https://youtu.be/iZkIdQ1ufis">PRODUCT VIDEO</a>
+      </div>
+    </div>  <!-- asset_video --> 
+  {% else %}
+    {% if blocks.settings.video_url == blank %}
+      <iframe src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&showinfo=0&vq=720" width="850" height="480"
+        frameborder="0" allowfullscreen></iframe>
+    {% else %}
+      {% if blocks.settings.video_url.type == "youtube" %}
+        <iframe src="//www.youtube.com/embed/{{ blocks.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480"
+          frameborder="0" allowfullscreen></iframe>
+      {% endif %}
+      {% if blocks.settings.video_url.type == "vimeo" %}
+        <iframe src="//player.vimeo.com/video/{{ blocks.settings.video_url.id }}?byline=0&portrait=0&badge=0"
+          width="850" height="480" frameborder="0" allowfullscreen></iframe>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name":"v_video",
+    "class":"index-section index-section--flush",
+    "max_blocks":1,
+    "settings":[
+      {
+        "type":      "checkbox",
+        "default":   true,
+        "id":        "asset_video",
+        "label":     "using video uploaded to asset folder"
+      }
+    ],
+    "blocks":[
+      {
+        "type": "video",
+        "name": "v_video",
+        "settings": [
+          {
+            "type": "video_url",
+            "id": "video_url",
+            "label": "YouTube or Vimeo link",
+            "accept": ["youtube", "vimeo"]
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "v_video",
+        "category": "vicmod",
+        "blocks": [
+          {
+            "type": "video"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

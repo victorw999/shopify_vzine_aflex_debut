@@ -1,0 +1,35 @@
+.v_video_wrapper{
+  .asset_video{
+    position:relative;
+    video{ width:100%; }
+    /*video btn*/
+    .vic_centering_wrapper{
+      text-align:center;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      margin: auto;
+      width:300px;height:200px;
+
+      display: flex; justify-content: center; flex-direction: column;
+
+      img#video-logo-1{
+        max-width:70%;
+        @include phone { display:none;}
+      }
+      .vic_btn{
+        background: #ffffffbd;
+        color: black;
+        position:absolute;
+        left:0;right:0;top:0;
+        bottom:-100px;
+        margin:auto;
+        width: 60%;
+        height: 40px;
+        @media screen and (max-width: 768px) {bottom:0; }
+      }// video button vic_btn
+      .vic_btn:hover{ background:black; color:white; opacity:1; }
+    } // vic_centering_wrapper
+  } //asset_video
+
+
+}//v_video_wrapper
