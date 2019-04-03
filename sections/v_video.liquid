@@ -9,7 +9,7 @@
       <div class="vic_centering_wrapper">
         <img id="video-logo-1"
           src="https://cdn.shopify.com/s/files/1/2313/1393/files/aflex-logo-opac-half.png">
-        <a id="video-btn-1" target="_blank" class="lulu_button" href="https://youtu.be/iZkIdQ1ufis">
+        <a id="video-btn-1" target="_blank" class="{{section.settings.button_format}}" href="https://youtu.be/iZkIdQ1ufis">
           {{ section.settings.button_text }}
         </a>
       </div>
@@ -47,7 +47,18 @@
         "type":      "text",
         "default":   "Video Button",
         "id":        "button_text",
-        "label":     "Button text" 
+        "label":     "Button text"
+      },
+      {
+        "type":"select",
+        "id":"button_format",
+        "label":"Button Format",
+        "default":"lulu_button",
+        "options":[
+          {"label":"hero__btn", "value":"btn hero__btn"},
+          {"label":"v_btn", "value":"btn v_btn"},
+          {"label":"lulu_button", "value":"lulu_button"}
+        ]
       }
     ],
     "blocks":[
