@@ -9,9 +9,12 @@
       <div class="vic_centering_wrapper">
         <img id="video-logo-1"
           src="https://cdn.shopify.com/s/files/1/2313/1393/files/aflex-logo-opac-half.png">
-        <a id="video-btn-1" target="_blank" class="{{section.settings.button_format}}" href="https://youtu.be/iZkIdQ1ufis">
-          {{ section.settings.button_text }}
-        </a>
+        {% if section.settings.button_link != blank %}
+          <a id="video-btn-1" target="_blank" class="{{section.settings.button_format}}"
+            href="{{ section.settings.button_link }}">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
       </div>
     </div>  <!-- asset_video -->
   {% else %}
@@ -48,6 +51,13 @@
         "default":   "Video Button",
         "id":        "button_text",
         "label":     "Button text"
+      },
+      {
+        "type":      "text",
+        "default":   "https://youtu.be/iZkIdQ1ufis",
+        "id":        "button_link",
+        "label":     "Button link",
+        "info":      "http:....."
       },
       {
         "type":"select",
