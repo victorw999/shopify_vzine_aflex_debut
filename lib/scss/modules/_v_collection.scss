@@ -1,4 +1,19 @@
 // section v_collection.liquid
 .v_collection{
 
+  /* if "full_width" options is turned on */
+  .page-width.full_width{
+    max-width: 100%;
+    padding-left: 0px;
+    padding-right:0px;
+  }//.page-width.full_width
+
+  /* remove grid img padding */
+  .grid.remove_padding_1of2{
+    margin-left: 0px;
+    .grid__item.remove_padding_2of2{
+      padding:0px;
+    }
+  }
+
 }//v_collection
