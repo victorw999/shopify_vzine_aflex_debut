@@ -1,4 +1,9 @@
-<div class="page-width">  
+<!--
+copied from collection.liquid
+will generates "Featured Collection" Section
+-->
+
+<div class="page-width {% if section.settings.full_width %} full_width {% endif %}">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h2>{{ section.settings.title | escape }}</h2>
@@ -53,7 +58,7 @@
   {% if section.settings.show_view_all %}
     <hr class="hr--invisible"></hr>
     <div class="text-center">
-      <a href="{{ collection.url }}" class="btn">
+      <a href="{{ collection.url }}" class="{{ section.settings.button_format}}">
         {{ 'collections.general.view_all' | t }}
       </a>
     </div>
@@ -63,8 +68,8 @@
 
 {% schema %}
   {
-    "name": "Featured collection",
-    "class": "index-section",
+    "name": "v_collection",
+    "class": "index-section v_collection",
     "settings": [
       {
         "type": "text",
@@ -106,12 +111,30 @@
         "id": "show_view_all",
         "label": "Show 'View all' button",
         "default": false
+      },
+      {
+        "type":"select",
+        "id":"button_format",
+        "label":"Button Format",
+        "default":"btn",
+        "options":[
+          {"label":"btn", "value":"btn"},
+          {"label":"hero__btn", "value":"btn hero__btn"},
+          {"label":"v_btn", "value":"btn v_btn"},
+          {"label":"lulu_button", "value":"lulu_button"}
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width (no margin)",
+        "default": false
       }
     ],
     "presets": [
       {
-        "name": "Featured collection",
-        "category": "Collection"
+        "name": "v_collection",
+        "category": "vicmod"
       }
     ]
   }
