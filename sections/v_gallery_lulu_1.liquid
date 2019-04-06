@@ -1,0 +1,179 @@
+/*
+  reverse engineer lulu's design:
+  ripped html & css
+*/
+
+<!--   copied frm v_collection.liquid -->
+<div class="page-width {% if section.settings.full_width %} full_width {% endif %}">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+
+
+</div> <!-- .page-width -->
+<!-- END: copied frm v_collection.liquid -->
+
+
+<div class="editorial-gallery">
+  <div class="editorial-gallery-container wrapper container-fluid">
+    <div class="row center-xs">
+      <div class="col-xs-12 col-sm-10">
+        <!--Top Gallery -->
+        <div class="row middle-xs around-xs gallery-body">
+          <div class="col-xs-12 col-sm-6 primary-section">
+            <div class="featured-image-section">
+              <!-- Image -->
+              <a href="https://aflexusa.com/collections/bottoms/products/ombre-womens-leggings" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-1.jpg?16203584400658298595"
+                  alt="aflex ombre leggings full image">
+              </a>
+              <!-- Description -->
+              <div class="product-details row">
+                <div class="col-xs-6 name-price-block-container">
+                  <div class="name-price-block">
+                    <h3 class="product-name">Ombre Women's Leggings</h3>
+                    <span class="product-price">
+                     L-7001 $79.00 USD</span>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <p class="product-description">
+                    The Ombre Women's Leggings was built with versatility in mind. These leggings can withstand the toughest of workouts and maintain ultimate comfort when resting.
+                  </p>
+                </div>
+              </div> <!-- END of Discription-->
+            </div>
+          </div> <!-- primary-section -->
+          <div class="col-xs-12 col-sm-6 start-xs secondary-section">
+              <a aria-hidden="true" tabindex="-1" role="presentation"
+                href="https://aflexusa.com/collections/bottoms/products/ombre-womens-leggings"
+                target="_blank"
+                data-component-link="story-editorial-gallery">
+                <img src="https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-3-c.jpg?9010632867165053180"
+                  class="secondary-image"
+                  alt="aflex ombre leggings closeup"></a>
+              <a aria-hidden="true" tabindex="-1" role="presentation"
+                href="https://aflexusa.com/collections/bottoms/products/ombre-womens-leggings" target="_blank" data-component-link="story-editorial-gallery">
+                <img src="https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-2-flip.jpg?3780498778921257843"
+                  class="tertiary-image"
+                  alt="aflex ombre leggings with side pockets"></a>
+          </div>
+        </div>
+        <!-- Bottom Button
+        <div class="row center-xs">
+          <div class="col-xs-12">
+              <div class="cta-container"><a class="button cta-button" href="#" data-component-link="story-editorial-gallery">Shop Women's Tops</a></div>
+          </div>
+        </div>-->
+
+      </div> <!-- col-xs-12 col-sm-10 -->
+    </div> <!-- row center-xs -->
+  </div> <!-- editorial-gallery-container wrapper container-fluid -->
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "v_gallery_lulu_1",
+    "class": "index-section v_gallery_lulu_1",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "V Gallery Lulu Editorial"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_1",
+        "label": "image 1"
+      },
+      {
+        "type": "url",
+        "id": "img_1_link",
+        "label": "image 1 link"
+      },
+      {
+        "type": "text",
+        "id": "img_1_alt",
+        "label": "image 1 seo description"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_2",
+        "label": "image 2"
+      },
+      {
+        "type": "url",
+        "id": "img_2_link",
+        "label": "image 2 link"
+      },
+      {
+        "type": "text",
+        "id": "img_2_alt",
+        "label": "image 2 seo description"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_3",
+        "label": "image 3"
+      },
+      {
+        "type": "url",
+        "id": "img_3_link",
+        "label": "image 3 link"
+      },
+      {
+        "type": "text",
+        "id": "img_3_alt",
+        "label": "image 3 seo description"
+      },
+      {
+        "type":"select",
+        "id":"button_format",
+        "label":"Button Format",
+        "default":"btn",
+        "options":[
+          {"label":"btn", "value":"btn"},
+          {"label":"hero__btn", "value":"btn hero__btn"},
+          {"label":"v_btn", "value":"btn v_btn"},
+          {"label":"lulu_button", "value":"lulu_button"}
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width (no margin, grid edge-to-edge)",
+        "default": false
+      },
+      {
+        "type":"select",
+        "id":"img_size",
+        "label":"image size",
+        "info":"adjust max_height",
+        "default":"1",
+        "options":[
+          {"label":"1",   "value":"1"},
+          {"label":"1.5", "value":"1.5"},
+          {"label":"2",   "value":"2"}
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "remove_padding",
+        "label": "Remove image paddings",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "v_gallery_lulu_1",
+        "category": "vicmod"
+      }
+    ]
+  }
+{% endschema %}
