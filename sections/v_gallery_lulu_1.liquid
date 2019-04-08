@@ -1,7 +1,7 @@
-/*
+<!--
   reverse engineer lulu's design:
   ripped html & css
-*/
+-->
 
 <!--   copied frm v_collection.liquid -->
 <div class="page-width {% if section.settings.full_width %} full_width {% endif %}">
@@ -12,67 +12,69 @@
   {% endif %}
 
 
+  <!--******* LULU EDITORIAL -->
+  <div class="editorial-gallery">
+    <div class="editorial-gallery-container wrapper container-fluid">
+      <div class="row center-xs">
+        <div class="col-xs-12 col-sm-10">
+          <!--Top Gallery -->
+          <div class="row middle-xs around-xs gallery-body">
+            <div class="col-xs-12 col-sm-6 primary-section">
+              <div class="featured-image-section">
+                <!-- Image -->
+                <a href="{{ section.settings.img_1_link }}" target="_blank">
+                  <img src="{{ section.settings.img_1 | img_url:'master' }}" alt = " {{ section.settings.img_1_alt }} " />
+                </a>
+                <!-- Description -->
+                <div class="product-details row">
+                  <div class="col-xs-6 name-price-block-container">
+                    <div class="name-price-block">
+                      <h3 class="product-name">{{ section.settings.heading_1 }} </h3>
+                      <span class="product-price"> {{ section.settings.heading_2 }} </span>
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                    <p class="product-description"> {{ section.settings.description }} </p>
+                  </div>
+                </div> <!-- END of Discription-->
+              </div>
+            </div> <!-- primary-section -->
+            <div class="col-xs-12 col-sm-6 start-xs secondary-section">
+                <a aria-hidden="true" tabindex="-1" role="presentation"
+                  href=" {{ section.settings.img_2_link }}"
+                  target="_blank"
+                  data-component-link="story-editorial-gallery">
+                  <!--  https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-3-c.jpg?9010632867165053180 -->
+                  <img src=" {{ section.settings.img_2 }} "
+                    class="secondary-image"
+                    alt="{{ section.settings.img_2_alt }}"></a>
+                <a aria-hidden="true" tabindex="-1" role="presentation"
+                  href="{{ section.settings.img_3_link }}"
+                  target="_blank" data-component-link="story-editorial-gallery">
+                  <!-- https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-2-flip.jpg?3780498778921257843 -->
+                  <img src=" {{ section.settings.img_3 }}"
+                    class="tertiary-image"
+                    alt=" {{ section.settings.img_3_alt }} "></a>
+            </div>
+          </div>
+          <!-- Bottom Button -->
+          <div class="row center-xs">
+            <div class="col-xs-12">
+                <div class="cta-container">
+                  <a class="button cta-button" href="#" data-component-link="story-editorial-gallery">Shop Women's Tops</a>
+                </div>
+            </div>
+          </div>
+
+        </div> <!-- col-xs-12 col-sm-10 -->
+      </div> <!-- row center-xs -->
+    </div> <!-- editorial-gallery-container wrapper container-fluid -->
+  </div> <!-- editorial-gallery -->
+  <!--******* END: LULU EDITORIAL -->
+
 
 </div> <!-- .page-width -->
 <!-- END: copied frm v_collection.liquid -->
-
-
-<div class="editorial-gallery">
-  <div class="editorial-gallery-container wrapper container-fluid">
-    <div class="row center-xs">
-      <div class="col-xs-12 col-sm-10">
-        <!--Top Gallery -->
-        <div class="row middle-xs around-xs gallery-body">
-          <div class="col-xs-12 col-sm-6 primary-section">
-            <div class="featured-image-section">
-              <!-- Image -->
-              <a href="https://aflexusa.com/collections/bottoms/products/ombre-womens-leggings" target="_blank">
-                <img src="https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-1.jpg?16203584400658298595"
-                  alt="aflex ombre leggings full image">
-              </a>
-              <!-- Description -->
-              <div class="product-details row">
-                <div class="col-xs-6 name-price-block-container">
-                  <div class="name-price-block">
-                    <h3 class="product-name">Ombre Women's Leggings</h3>
-                    <span class="product-price">
-                     L-7001 $79.00 USD</span>
-                  </div>
-                </div>
-                <div class="col-xs-6">
-                  <p class="product-description">
-                    The Ombre Women's Leggings was built with versatility in mind. These leggings can withstand the toughest of workouts and maintain ultimate comfort when resting.
-                  </p>
-                </div>
-              </div> <!-- END of Discription-->
-            </div>
-          </div> <!-- primary-section -->
-          <div class="col-xs-12 col-sm-6 start-xs secondary-section">
-              <a aria-hidden="true" tabindex="-1" role="presentation"
-                href="https://aflexusa.com/collections/bottoms/products/ombre-womens-leggings"
-                target="_blank"
-                data-component-link="story-editorial-gallery">
-                <img src="https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-3-c.jpg?9010632867165053180"
-                  class="secondary-image"
-                  alt="aflex ombre leggings closeup"></a>
-              <a aria-hidden="true" tabindex="-1" role="presentation"
-                href="https://aflexusa.com/collections/bottoms/products/ombre-womens-leggings" target="_blank" data-component-link="story-editorial-gallery">
-                <img src="https://cdn.shopify.com/s/files/1/2313/1393/files/gal-legging-2-flip.jpg?3780498778921257843"
-                  class="tertiary-image"
-                  alt="aflex ombre leggings with side pockets"></a>
-          </div>
-        </div>
-        <!-- Bottom Button
-        <div class="row center-xs">
-          <div class="col-xs-12">
-              <div class="cta-container"><a class="button cta-button" href="#" data-component-link="story-editorial-gallery">Shop Women's Tops</a></div>
-          </div>
-        </div>-->
-
-      </div> <!-- col-xs-12 col-sm-10 -->
-    </div> <!-- row center-xs -->
-  </div> <!-- editorial-gallery-container wrapper container-fluid -->
-</div>
 
 
 
@@ -90,47 +92,65 @@
       {
         "type": "image_picker",
         "id": "img_1",
-        "label": "image 1"
+        "label": "Image 1"
       },
       {
         "type": "url",
         "id": "img_1_link",
-        "label": "image 1 link"
+        "label": "Image 1 link"
       },
       {
         "type": "text",
         "id": "img_1_alt",
-        "label": "image 1 seo description"
+        "label": "Image 1 seo description"
       },
       {
         "type": "image_picker",
         "id": "img_2",
-        "label": "image 2"
+        "label": "Image 2"
       },
       {
         "type": "url",
         "id": "img_2_link",
-        "label": "image 2 link"
+        "label": "Image 2 link"
       },
       {
         "type": "text",
         "id": "img_2_alt",
-        "label": "image 2 seo description"
+        "label": "Image 2 seo description"
       },
       {
         "type": "image_picker",
         "id": "img_3",
-        "label": "image 3"
+        "label": "Image 3"
       },
       {
         "type": "url",
         "id": "img_3_link",
-        "label": "image 3 link"
+        "label": "Image 3 link"
       },
       {
         "type": "text",
         "id": "img_3_alt",
-        "label": "image 3 seo description"
+        "label": "Image 3 seo description"
+      },
+      {
+        "type" : "text",
+        "id" : "heading_1",
+        "label" : "Heading 1",
+        "default" : "Ombre Women's Leggings"
+      },
+      {
+        "type" : "text",
+        "id" : "heading_2",
+        "label" : "Heading 2",
+        "default" : "L-7001 $79.00 USD"
+      },
+      {
+        "type"    : "richtext",
+        "id"      : "description",
+        "label"   : "Text",
+        "default" : "<p>The Ombre Women's Leggings was built with versatility in mind. These leggings can withstand the toughest of workouts and maintain ultimate comfort when resting.</p>"
       },
       {
         "type":"select",
