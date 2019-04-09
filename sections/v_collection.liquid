@@ -56,11 +56,14 @@ will generates "Featured Collection" Section
   </div>
 
   {% if section.settings.show_view_all %}
-    <hr class="hr--invisible"></hr>
-    <div class="text-center">
-      <a href="{{ collection.url }}" class="{{ section.settings.button_format}}">
-        {{ 'collections.general.view_all' | t }}
-      </a>
+    <div class="cta_btn_section">   
+      <hr class="hr--invisible above_btn"></hr>
+      <div class="text-center">
+        <a href="{{ collection.url }}" class="{{ section.settings.button_format}}">
+          {{ 'collections.general.view_all' | t }}
+        </a>
+      </div>
+      <hr class="hr--invisible below_btn"></hr>
     </div>
   {% endif %}
 
@@ -75,7 +78,7 @@ will generates "Featured Collection" Section
         "type": "text",
         "id": "title",
         "label": "Heading",
-        "default": "Featured collection"
+        "default": "V Featured collection"
       },
       {
         "id": "collection",

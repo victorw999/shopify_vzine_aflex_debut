@@ -67,16 +67,20 @@
           </div>
           <!-- Bottom Button -->
           {% if section.settings.button_text != blank %}
-          <div class="row center-xs">
-            <div class="col-xs-12">
-                <div class="cta-container">
-                  <a class="button cta-button {{section.settings.button_format}}"
-                    href="{{ section.settings.button_link }}" data-component-link="story-editorial-gallery">
-                    {{section.settings.button_text}}
-                  </a>
-                </div>
+          <div class="cta_btn_section">
+            <hr class="hr--invisible above_btn"></hr>
+            <div class="row center-xs">
+              <div class="col-xs-12">
+                  <div class="cta-container">
+                    <a class="button cta-button {{section.settings.button_format}}"
+                      href="{{ section.settings.button_link }}" data-component-link="story-editorial-gallery">
+                      {{section.settings.button_text}}
+                    </a>
+                  </div>
+              </div>
             </div>
-          </div>
+            <hr class="hr--invisible below_btn"></hr>
+          </div><!-- cta_btn_section -->
           {% endif %}
 
         </div> <!-- col-xs-12 col-sm-10 -->
