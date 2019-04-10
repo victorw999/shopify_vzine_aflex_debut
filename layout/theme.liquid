@@ -109,6 +109,11 @@
   <!-- VICMOD link browserify's bundle.js -->
     {{ 'bundle.js' | asset_url | script_tag }}
 
+  <!-- VICMOD add instafeed.js to homepage only from fashionopolism -->
+    {% if template contains 'index' %}
+      {{ 'instafeed.js' | asset_url | script_tag }}
+  	{% endif %}
+
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">

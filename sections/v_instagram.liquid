@@ -1,0 +1,107 @@
+<!-- copied from fashionopolism -->
+
+<script id="instagram-template" type="text/template">
+  {% raw %}
+
+      <div class="grid__item one-fifth vicmod_instagram_thumb">
+        <a class="instagram-image-container" target="_blank"
+          href="{{link}}" rel="ig" title="{{caption}}">
+          <img class="instagram-image" src="{{image}}" />
+        </a>
+      </div>
+
+  {% endraw %}
+</script>
+
+<div class="page-width {% if section.settings.full_width %} full_width {% endif %}">
+  <div  class="homepage-section instagram-feed no-fouc index-section grid"
+        data-section-id="{{ section.id }}"
+        data-section-type="instagram">
+    <section id="index-social" class="row" style="margin:0px;">
+      {% if section.settings.heading != blank %}
+      <h2 class="grid__item one-whole {% if section.settings.heading_center%} text-center{%endif%}">
+        {{ section.settings.heading | escape }}
+      </h2>
+      {% endif %}
+      <div class="clear"></div>
+
+      {% assign token = section.settings.instagram_access_token %}
+      {% capture userid %}
+      {{- token | truncate: 9, "" -}}
+      {% endcapture %}
+
+      <div class="instagram-user-feed grid__item one-whole"  >
+
+        {% if section.settings.instagram_access_token != blank %}
+        <div id="instafeed-{{ section.id }}" data-access-token="{{ token }}" class="grid"></div>
+        {% else %}
+
+        {% include 'v-onboard-instagram' %}
+        {% endif %}
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<style>
+  .instagram-image-container {
+    display: block;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  /* vicmod: fix fashionopolism's instgram img: not turning rectangular img into square*/
+  .instagram-image{
+    object-fit: cover;
+    width: 215px;
+    height: 215px;
+  }
+  /* full width feature */
+  .shopify-section.v_instagram .page-width.full_width{
+    max-width: 100%;
+    padding-left: 0px;
+    padding-right:0px;
+  }
+</style>
+
+
+{% schema %}
+{
+	"name": "V Instagram feed",
+  "class": "v_instagram",
+	"settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width (no margin, grid edge-to-edge)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_center",
+      "label": "Center the heading",
+      "default":false
+    },
+    {
+        "type": "textarea",
+        "id": "instagram_access_token",
+        "label": "Instagram access token",
+    	  "info": "Required for permission to show your Instagram content [instructions here](http://support.undergroundmedia.co.uk/customer/en/portal/articles/2386318-home-page---instagram-feed) for setup."
+    }
+  ],
+  "presets": [
+    {
+      "name": "v Instagram feed",
+      "category": "vicmod"
+    }
+  ]
+}
+{% endschema %}

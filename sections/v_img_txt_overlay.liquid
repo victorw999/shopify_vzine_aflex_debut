@@ -30,10 +30,13 @@
       {% endif %}
 
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="{{ section.settings.button_format}}"
-          style="margin-top:{{section.settings.margin_top}}">
+      <div class="cta_btn_section">
+        <hr class="hr--invisible above_btn" style="margin:1rem 0;"></hr>
+        <a href="{{ section.settings.button_link }}" class="{{ section.settings.button_format}}">
           {{ section.settings.button_label }}
         </a>
+        <hr class="hr--invisible below_btn" style="margin:0"></hr>
+      </div><!-- cta_btn_section -->
       {% endif %}
     </div>
   </div>
@@ -184,12 +187,6 @@
           {"label":"v_btn", "value":"btn v_btn"},
           {"label":"lulu_button", "value":"lulu_button"}
         ]
-      },
-      {
-        "type": "text",
-        "id": "margin_top",
-        "default": "27px",
-        "label": "margin-top:"
       },
 	    {
     		"id":"custom-css-class",
