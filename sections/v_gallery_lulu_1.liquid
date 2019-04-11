@@ -7,10 +7,7 @@
   image filters' behavior
   img_url: https://www.shopify.com/partners/blog/img-url-filter
   img_tag: https://www.shopify.com/partners/blog/html-img-element
-
-
-
-{{ section.settings.img_1 | img_url:'100x200', crop:'center', scale:2 | img_tag : 'vicmod' }}
+  {{ section.settings.img_1 | img_url:'100x200', crop:'center', scale:2 | img_tag : 'vicmod' }}
 -->
 
 <!--   copied frm v_collection.liquid -->
@@ -20,7 +17,6 @@
       <h2>{{ section.settings.title | escape }}</h2>
     </div>
   {% endif %}
-
 
   <!--******* LULU EDITORIAL -->
   <div class="editorial-gallery">
@@ -89,11 +85,8 @@
   </div> <!-- editorial-gallery -->
   <!--******* END: LULU EDITORIAL -->
 
-
 </div> <!-- .page-width -->
 <!-- END: copied frm v_collection.liquid -->
-
-
 
 {% schema %}
   {

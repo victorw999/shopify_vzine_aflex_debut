@@ -6,14 +6,12 @@
 
 <script id="instagram-template" type="text/template">
   {% raw %}
-
-      <div class="grid__item one-fifth small--one-whole medium--one-half vicmod_instagram_thumb">
-        <a class="instagram-image-container" target="_blank"
-          href="{{link}}" rel="ig" title="{{caption}}">
-          <img class="instagram-image" src="{{image}}" />
-        </a>
-      </div>
-
+    <div class="grid__item one-fifth small--one-whole medium--one-half vicmod_instagram_thumb">
+      <a class="instagram-image-container" target="_blank"
+        href="{{link}}" rel="ig" title="{{caption}}">
+        <img class="instagram-image" src="{{image}}" />
+      </a>
+    </div>
   {% endraw %}
 </script>
 
@@ -24,12 +22,11 @@
     <section id="index-social" class="row" style="margin:0px;">
       {% if section.settings.heading != blank %}
 
-      <div class="section-header one-whole {% if section.settings.heading_center%} text-center{%endif%}">
-        <h2 class="grid__item one-whole ">
-          {{ section.settings.heading | escape }}
-        </h2>
-      </div>
-
+        <div class="section-header one-whole {% if section.settings.heading_center%} text-center{%endif%}">
+          <h2 class="grid__item one-whole ">
+            {{ section.settings.heading | escape }}
+          </h2>
+        </div>
 
       {% endif %}
       <div class="clear"></div>
@@ -119,16 +116,16 @@
       "default":true
     },
     {
-        "type": "textarea",
-        "id": "instagram_access_token",
-        "label": "Instagram access token",
-    	  "info": "Required for permission to show your Instagram content [instructions here](http://support.undergroundmedia.co.uk/customer/en/portal/articles/2386318-home-page---instagram-feed) for setup."
+      "type": "textarea",
+      "id": "instagram_access_token",
+      "label": "Instagram access token",
+      "info": "Required for permission to show your Instagram content [instructions here](http://support.undergroundmedia.co.uk/customer/en/portal/articles/2386318-home-page---instagram-feed) for setup."
     }
   ],
   "presets": [
     {
       "name": "v Instagram feed",
-      "category": "vicmod"
+      "category": "vicmod" 
     }
   ]
 }
