@@ -25,13 +25,13 @@ function handleErrors() {
     .onError({
       // Send error to notification center with gulp-notify
       title: "Compile Error",
-      message: "<%= error %>"
+      message: "<%= error %>",
     })
     .apply(this, args);
   this.emit("end"); // Keep gulp from hanging on this task
 }
 
-gulp.task("sass", function() {
+gulp.task("sass", function () {
   gulp
     .src("./lib/scss/*.{sass,scss}")
     .pipe(sass({ includePaths: neat, outputStyle: "compressed" }))
@@ -43,7 +43,7 @@ gulp.task("sass", function() {
     .pipe(gulp.dest("./assets"));
 });
 
-gulp.task("shopifywatch", function() {
+gulp.task("shopifywatch", function () {
   // example template: https://www.npmjs.com/package/gulp-shopify-upload
   return watch(
     "./+(assets|config|layout|locales|sections|snippets|templates|)/**"
@@ -61,7 +61,7 @@ gulp.task("shopifywatch", function() {
 // gulp.task('watch', function () {
 //   gulp.watch('./lib/scss/**/*.{sass,scss}', ['sass']);
 // });
-gulp.task("watch", function() {
+gulp.task("watch", function () {
   gulp.watch("./lib/scss/**/*.{sass,scss}", ["sass"]);
   gulp.watch("./lib/js/**/*.js", ["browserify"]);
 
@@ -71,20 +71,17 @@ gulp.task("watch", function() {
       debug: true,
       cache: {},
       packageCache: {},
-      fullPaths: true
+      fullPaths: true,
     })
   );
 
-  return watcher.on("update", function() {
-    watcher
-      .bundle()
-      .pipe(source("bundle.js"))
-      .pipe(gulp.dest("./assets/"));
+  return watcher.on("update", function () {
+    watcher.bundle().pipe(source("bundle.js")).pipe(gulp.dest("./assets/"));
   });
 });
 
 // Concats your JS files
-gulp.task("browserify", function() {
+gulp.task("browserify", function () {
   return browserify("./lib/js/app.js")
     .bundle()
     .on("error", handleErrors)
@@ -93,10 +90,4 @@ gulp.task("browserify", function() {
 });
 
 // Default gulp action when gulp is run
-<<<<<<< HEAD
 gulp.task("default", ["sass", "shopifywatch", "watch"]);
-=======
-gulp.task('default', [
-  'sass', 'shopifywatch', 'watch'
-]);
->>>>>>> 7c0b0b47e2741aaabb659a493233b1ee8f3a1857
