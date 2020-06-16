@@ -1,0 +1,204 @@
+<!--
+  reverse engineer lulu's design:
+  ripped html & css
+-->
+
+<!--
+  image filters' behavior
+  img_url: https://www.shopify.com/partners/blog/img-url-filter
+  img_tag: https://www.shopify.com/partners/blog/html-img-element
+  {{ section.settings.img_1 | img_url:'100x200', crop:'center', scale:2 | img_tag : 'vicmod' }}
+-->
+
+<!--   copied frm v_collection.liquid -->
+<div class="page-width {% if section.settings.full_width %} full_width {% endif %}">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  <!--******* LULU EDITORIAL -->
+  <div class="editorial-gallery">
+    <div class="editorial-gallery-container wrapper container-fluid">
+      <div class="row center-xs">
+        <div class="col-xs-12 col-sm-10">
+          <!--Top Gallery -->
+          <div class="row middle-xs around-xs gallery-body">
+            <div class="col-xs-12 col-sm-6 primary-section">
+              <div class="featured-image-section">
+                <!-- Image -->
+                <a href="{{ section.settings.img_1_link }}" target="_blank">
+                  <img src="{{ section.settings.img_1 | img_url:'master' }}" alt = "{{ section.settings.img_1_alt }}" />
+                </a>
+                <!-- Description -->
+                <div class="product-details row">
+                  <div class="col-xs-6 name-price-block-container">
+                    <div class="name-price-block">
+                      <h3 class="product-name">{{ section.settings.heading_1 }} </h3>
+                      <span class="product-price"> {{ section.settings.heading_2 }} </span>
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                    <p class="product-description"> {{ section.settings.detail }} </p>
+                  </div>
+                </div> <!-- END of Discription-->
+              </div>
+            </div> <!-- primary-section -->
+            <div class="col-xs-12 col-sm-6 start-xs secondary-section">
+                <a aria-hidden="true" tabindex="-1" role="presentation"
+                  href=" {{ section.settings.img_2_link }}"
+                  target="_blank"
+                  data-component-link="story-editorial-gallery">
+                  <img src="{{ section.settings.img_2 | img_url:'master' }}"
+                    class="secondary-image"
+                    alt="{{ section.settings.img_2_alt }}"></a>
+                <a aria-hidden="true" tabindex="-1" role="presentation"
+                  href="{{ section.settings.img_3_link }}"
+                  target="_blank" data-component-link="story-editorial-gallery">
+                  <img src="{{ section.settings.img_3 | img_url:'master' }}"
+                    class="tertiary-image"
+                    alt=" {{ section.settings.img_3_alt }} "></a>
+            </div>
+          </div>
+          <!-- Bottom Button -->
+          {% if section.settings.button_text != blank %}
+          <div class="cta_btn_section">
+            <hr class="hr--invisible above_btn"></hr>
+            <div class="row center-xs">
+              <div class="col-xs-12">
+                  <div class="cta-container">
+                    <a class="button cta-button {{section.settings.button_format}}"
+                      href="{{ section.settings.button_link }}" data-component-link="story-editorial-gallery">
+                      {{section.settings.button_text}}
+                    </a>
+                  </div>
+              </div>
+            </div>
+            <hr class="hr--invisible below_btn"></hr>
+          </div><!-- cta_btn_section -->
+          {% endif %}
+
+        </div> <!-- col-xs-12 col-sm-10 -->
+      </div> <!-- row center-xs -->
+    </div> <!-- editorial-gallery-container wrapper container-fluid -->
+  </div> <!-- editorial-gallery -->
+  <!--******* END: LULU EDITORIAL -->
+
+</div> <!-- .page-width -->
+<!-- END: copied frm v_collection.liquid -->
+
+{% schema %}
+  {
+    "name": "v_gallery_lulu_1",
+    "class": "index-section v_gallery_lulu_1",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "V Gallery Lulu Editorial"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_1",
+        "label": "Image 1"
+      },
+      {
+        "type": "url",
+        "id": "img_1_link",
+        "label": "Image 1 link"
+      },
+      {
+        "type": "text",
+        "id": "img_1_alt",
+        "label": "Image 1 seo description",
+        "default":"aflexusa made in usa"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_2",
+        "label": "Image 2"
+      },
+      {
+        "type": "url",
+        "id": "img_2_link",
+        "label": "Image 2 link"
+      },
+      {
+        "type": "text",
+        "id": "img_2_alt",
+        "label": "Image 2 seo description",
+        "default":"aflexusa made in usa"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_3",
+        "label": "Image 3"
+      },
+      {
+        "type": "url",
+        "id": "img_3_link",
+        "label": "Image 3 link"
+      },
+      {
+        "type": "text",
+        "id": "img_3_alt",
+        "label": "Image 3 seo description",
+        "default":"aflexusa made in usa"
+      },
+      {
+        "type" : "text",
+        "id" : "heading_1",
+        "label" : "Heading 1",
+        "default" : "Ombre Women's Leggings"
+      },
+      {
+        "type" : "text",
+        "id" : "heading_2",
+        "label" : "Heading 2",
+        "default" : "L-7001 $79.00 USD"
+      },
+      {
+        "type"    : "textarea",
+        "id"      : "detail",
+        "label"   : "Text",
+        "default" : "The Ombre Women's Leggings was built with versatility in mind. These leggings can withstand the toughest of workouts and maintain ultimate comfort when resting."
+      },
+      {
+        "type" : "text",
+        "id" : "button_text",
+        "label" : "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type":"select",
+        "id":"button_format",
+        "label":"Button Format",
+        "default":"btn",
+        "options":[
+          {"label":"btn", "value":"btn"},
+          {"label":"hero__btn", "value":"btn hero__btn"},
+          {"label":"v_btn", "value":"btn v_btn"},
+          {"label":"lulu_button", "value":"lulu_button"}
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width (no margin, grid edge-to-edge)",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "v_gallery_lulu_1",
+        "category": "vicmod"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,162 @@
+<!--
+copied from collection.liquid
+will generates "Featured Collection" Section
+-->
+
+<div class="page-width {% if section.settings.full_width %} full_width {% endif %}">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {%- assign collection = collections[section.settings.collection] -%}
+
+  {% case section.settings.grid %}
+    {% when 2 %}
+      {%- assign max_height = 530 | times:section.settings.img_size -%}
+      {%- assign grid_item_width = 'medium-up--one-half' -%}
+    {% when 3 %}
+      {%- assign max_height = 345 | times:section.settings.img_size -%}
+      {%- assign grid_item_width = 'small--whole medium-up--one-third' -%}
+    {% when 4 %}
+      {%- assign max_height = 250 | times:section.settings.img_size -%}
+      {%- assign grid_item_width = 'small--whole medium-up--one-quarter' -%}
+    {% when 5 %}
+      {%- assign max_height = 195 | times:section.settings.img_size -%}
+      {%- assign grid_item_width = 'small--whole medium-up--one-fifth' -%}
+  {% endcase %}
+
+  {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+
+  <div class="grid grid--uniform grid--view-items {% if section.settings.remove_padding == true%} remove_padding_1of2 {% endif %} ">
+    {% for product in collection.products limit: product_limit %}
+      <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }} {% if section.settings.remove_padding == true%} remove_padding_2of2 {% endif %}">
+        {% include 'product-card-grid', max_height: max_height %}
+      </div>
+    {% else %}
+
+      {% for i in (1..product_limit) %}
+        <div class="grid__item .grid__item--{{section.id}} {{ grid_item_width }}">
+          <div class="grid-view-item">
+            <a href="#" class="grid-view-item__link">
+              <div class="grid-view-item__image">
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+              <div class="grid-view-item__meta">
+                {% include 'product-price' %}
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  {% if section.settings.show_view_all %}
+    <div class="cta_btn_section">   
+      <hr class="hr--invisible above_btn"></hr>
+      <div class="text-center">
+        <a href="{{ collection.url }}" class="{{ section.settings.button_format}}">
+          {{ 'collections.general.view_all' | t }}
+        </a>
+      </div>
+      <hr class="hr--invisible below_btn"></hr>
+    </div>
+  {% endif %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "v_collection",
+    "class": "index-section v_collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "V Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "range",
+        "id": "grid",
+        "label": "Products per row",
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "rows",
+        "label": "Rows",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendors",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": "Show 'View all' button",
+        "default": false
+      },
+      {
+        "type":"select",
+        "id":"button_format",
+        "label":"Button Format",
+        "default":"btn",
+        "options":[
+          {"label":"btn", "value":"btn"},
+          {"label":"hero__btn", "value":"btn hero__btn"},
+          {"label":"v_btn", "value":"btn v_btn"},
+          {"label":"lulu_button", "value":"lulu_button"}
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width (no margin, grid edge-to-edge)",
+        "default": false
+      },
+      {
+        "type":"select",
+        "id":"img_size",
+        "label":"image size",
+        "info":"adjust max_height",
+        "default":"1",
+        "options":[
+          {"label":"1",   "value":"1"},
+          {"label":"1.5", "value":"1.5"},
+          {"label":"2",   "value":"2"}
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "remove_padding",
+        "label": "Remove image paddings",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "v_collection",
+        "category": "vicmod"
+      }
+    ]
+  }
+{% endschema %}

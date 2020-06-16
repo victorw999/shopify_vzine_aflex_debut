@@ -12,13 +12,43 @@
     "settings": [
       {
         "type": "header",
-        "content": "Main Colors"
+        "content": "vicmod colors config addition"
       },
       {
         "type": "color",
         "id": "color_text_vicmod",
         "label": "Headings and links_vicmod",
         "default": "#3d4246"
+      },
+      {
+        "type": "color",
+        "id": "v_color_btn",
+        "label": "v_btn color",
+        "default": "transparent"
+      },
+      {
+        "type": "color",
+        "id": "v_color_btn_txt",
+        "label": "v_btn text color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "v_color_btn_border",
+        "label": "v_btn border color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "v_color_btn_hover",
+        "label": "v_btn color when hover",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "v_color_btn_txt_hover",
+        "label": "v_btn text color when hover",
+        "default": "#fff"
       }
     ]
   },
@@ -366,8 +396,27 @@
             "group": "Serif | Google Web Fonts"
           },
           {
-            "value": "vic_verlag",
-            "label": "vic_verlag",
+            "value": "vic_verlag_normal", "label": "vic_verlag normal",
+            "group": "Serif | Victor"
+          },
+          {
+            "value": "vic_verlag_light", "label": "vic_verlag light",
+            "group": "Serif | Victor"
+          },
+          {
+            "value": "vic_verlag_thin", "label": "vic_verlag thin",
+            "group": "Serif | Victor"
+          },
+          {
+            "value": "hco_verlag_light", "label": "HCo Verlag Light",
+            "group": "Serif | Victor"
+          },
+          {
+            "value": "hco_verlag_normal", "label": "HCo Verlag Normal",
+            "group": "Serif | Victor"
+          },
+          {
+            "value": "hco_verlag_bold", "label": "HCo Verlag Bold",
             "group": "Serif | Victor"
           }
         ]
@@ -645,6 +694,18 @@
             "value": "Google_Vollkorn_700_serif",
             "label": "Vollkorn Bold",
             "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "hco_verlag_light", "label": "HCo Verlag Light",
+            "group": "Serif | Victor"
+          },
+          {
+            "value": "hco_verlag_normal", "label": "HCo Verlag Normal",
+            "group": "Serif | Victor"
+          },
+          {
+            "value": "hco_verlag_bold", "label": "HCo Verlag Bold",
+            "group": "Serif | Victor"
           }
         ]
       },

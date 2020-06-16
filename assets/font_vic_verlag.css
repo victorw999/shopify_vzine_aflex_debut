@@ -1,20 +1,45 @@
 @font-face {
-  font-family: 'vic_verlag';
+  font-family: 'vic_verlag_normal';
   src: url('verlag_book-webfont.woff2') format('woff2'),
        url('verlag_book-webfont.woff') format('woff');
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'vic_verlag';
+  font-family: 'vic_verlag_light';
   src: url('verlag_light-webfont.woff2') format('woff2'),
        url('verlag_light-webfont.woff') format('woff');
   font-weight: 200;
 }
 
 @font-face {
-  font-family: 'vic_verlag';
+  font-family: 'vic_verlag_thin';
   src: url('verlag_xlight-webfont.woff2') format('woff2'),
        url('verlag_xlight-webfont.woff') format('woff');
   font-weight: 100;
+}
+
+/* ripped from lulu's site, index.scss */
+@font-face {
+  font-family: 'hco_verlag_light';
+  src:  url("hco_verlag_300.woff2") format("woff2"),
+        url("hco_verlag_300.woff") format("woff");
+  font-weight: 300;
+  font-style: normal
+}
+
+@font-face {
+  font-family: 'hco_verlag_normal';
+  src: url("hco_verlag_400.woff2") format("woff2"),
+       url("hco_verlag_400.woff") format("woff");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: 'hco_verlag_bold';
+  src: url("hco_verlag_700.woff2") format("woff2"),
+       url("hco_verlag_700.woff") format("woff");
+  font-weight: 700;
+  font-style: normal
 }

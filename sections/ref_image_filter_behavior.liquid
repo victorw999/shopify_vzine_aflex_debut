@@ -1,0 +1,37 @@
+<!--
+  image filters' behavior
+  img_url: https://www.shopify.com/partners/blog/img-url-filter
+  img_tag: https://www.shopify.com/partners/blog/html-img-element
+
+-->
+<div style="background-color: {{ sections.settings.bg }}">
+
+  {{ section.settings.img_1 | img_url:'100x200', crop:'center', scale:2 | img_tag : 'vicmod' }}
+
+</div>
+
+{% schema %}
+  {
+    "name": "ref_image_filter_bahavior",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "img_1",
+        "label": "Image 1"
+      },
+      {
+        "type": "color",
+        "id": "bg",
+        "label": "background",
+        "default" : "#000"
+      }
+    ],
+    "presets": [
+      {
+        "name": "ref_image_filter_bahavior",
+        "category": "vicmod"
+      }
+    ]
+  }
+{% endschema %}

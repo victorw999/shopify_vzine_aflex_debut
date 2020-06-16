@@ -1,0 +1,7 @@
+/* override debut's theme.scss.liquid */
+
+
+// remove the annoying top margin of the frist of "index-section--flush"
+.index-section--flush:first-child {
+  margin-top: 0px;
+}

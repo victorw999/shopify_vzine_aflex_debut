@@ -1,0 +1,49 @@
+/*
+  css for vicmod-slideshow.liquid
+  for a dynamic section
+*/
+.vicmod-slideshow {
+  .slideshow__overlay::before {
+    // background-color: transparent; // override
+  }
+
+  .slideshow__text-content {
+    @include phone { display: none; }
+    width: 500px;
+    &.right {
+      right: 50px;
+    } // right
+    &.left {
+      left: 50px;
+    }
+    &.middle {
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    &.top {
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-top: -15%;
+    }
+    &.bottom {
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-top: 15%;
+    }
+
+    .slideshow__title {
+      margin-bottom: 1rem;
+    } // slide title
+
+    .slideshow__subtitle {
+      //font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 1em;
+      margin-bottom: 0;
+      text-decoration: none;
+    } //slideshow__subtitle
+  } // .slideshow__text-content
+} // end: .vicmod-slideshow
