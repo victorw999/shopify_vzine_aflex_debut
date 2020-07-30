@@ -1,6 +1,6 @@
-# shopify_vzine_aflex_debut
+# shopify_vzine_aflex_debut (Custom Theme)
 
-### [Live Demo](https://vzine.myshopify.com/)
+### [Theme Demo](https://vzine.myshopify.com/)    |    [Production Site](https://aflexusa.com/)
  
  
 | Features  |   |
