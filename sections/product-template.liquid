@@ -35,6 +35,7 @@
       {%- assign enable_zoom = false -%}
   {% endcase %}
 
+
   <div class="grid product-single">
     <div class="grid__item product-single__photos {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
       {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
@@ -137,7 +138,7 @@
               </span>
             {% endif %}
           </p>
-
+          
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
             {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
               {% for option in product.options_with_values %}
@@ -145,7 +146,10 @@
                   <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
                     {{ option.name }}
                   </label>
-                  <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                  <select 
+                    class="single-option-selector single-option-selector-{{ section.id }} product-form__input" 
+                    id="SingleOptionSelector-{{ forloop.index0 }}" 
+                    data-index="option{{ forloop.index }}">
                     {% for value in option.values %}
                       <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
                     {% endfor %}
@@ -203,6 +207,9 @@
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
         {% endif %}
+
+        <button class='add_meta'> add_meta </button>
+
       </div>
     </div>
   </div>
@@ -284,3 +291,52 @@
     ]
   }
 {% endschema %}
+
+<h1>product.id  {{product.id}}</h1>
+
+<script>
+
+
+  // TEST Add Metafiled
+  // REF: https://shopify.dev/docs/admin-api/rest/reference/metafield#create-2020-10
+  // Create a new metafield for a "Product" resource
+
+  let btn_addmeta = document.querySelector('.add_meta')
+
+  btn_addmeta.addEventListener('click', () => {
+ 
+   
+    let id = {{product.id | json }};
+
+    let payload = { 
+        "namespace": "inventory",
+        "key": "warehouse",
+        "value": 25,
+        "value_type": "integer"      
+    };
+
+    let url = `/admin/api/2020-10/products/${id}/metafields.json`
+    console.log(url)
+    postData(url , {
+      "metafield": payload
+    }).then(result => {
+      console.log('result ----------------- ', result)
+    })
+
+  }) // btn_addmeta.addEventListener
+
+  async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc. 
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },      
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
+
+
+
+</script>
